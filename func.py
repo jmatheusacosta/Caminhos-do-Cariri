@@ -27,7 +27,7 @@ def salvar_matriz(matriz):
         writer.writerows(matriz)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send a message when the command /start is issued."""
-    save_update(update)
+    #save_update(update)
     user = update.effective_user
     nome_jogador=user["first_name"]
     print(update)
