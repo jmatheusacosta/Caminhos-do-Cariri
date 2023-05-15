@@ -4,7 +4,7 @@ import telebot
 import pickle
 import csv
 
-def save_update(update):
+"""def save_update(update):
     #Salva os dados Update para ser usado por outras funções.
     with open("update.pickle", "wb") as f:
         pickle.dump(update, f)
@@ -13,7 +13,7 @@ async def open_update():
     with open("update.pickle", "rb") as f:
         update = pickle.load(f)
     print(update)
-    return update
+    return update"""
 def abrir_matriz():
     matriz=[]
     with open("dados.csv","r") as arquivo:
