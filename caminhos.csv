@@ -1,4 +1,6 @@
-AA0,AA1
-"Você esta decidido visitar a estatua do Padre Cicero, construída em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da história da região, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar lá, você vê um grupo de romeiros, oque você decide fazer? /n/1 - Vai falar com  os  romeiros vendo se eles  tem  a mesma animação que você para conhecera estátua do Pe. Cícero. /n/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero.","Os romeios são amigaveis, e ate lhe convidam para você subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros vão continuar a subida no onibus, e lhe perguntam oque vc decide fazer. "
-AA1,ac3
-AB0,as5
+AA0,AA1,AB0,AC0,AD0
+"Vocï¿½ esta decidido visitar a estatua do Padre Cicero, construï¿½da em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da histï¿½ria da regiï¿½o, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar lï¿½, vocï¿½ vï¿½ um grupo de romeiros, oque vocï¿½ decide fazer? /n/1 - Vai falar comï¿½ï¿½osï¿½ï¿½romeiros vendo se elesï¿½ï¿½temï¿½ï¿½a mesma animaï¿½ï¿½o que vocï¿½ para conhecera estï¿½tua do Pe. Cï¿½cero. /n/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero.","Os romeios sï¿½o amigaveis, e ate lhe convidam para vocï¿½ subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros vï¿½o continuar a subida no onibus, e lhe perguntam oque vc decide fazer. ",TESTE OP2,TESTE OP3,TESTE OP4
+AA1,ac3,,,
+AB0,as5,,,
+AC0,,,,
+AD0,,,,

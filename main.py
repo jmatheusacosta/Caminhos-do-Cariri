@@ -28,9 +28,9 @@ def main() -> None:
     application.add_handler(CommandHandler("help", help_command))
 
     application.add_handler(CommandHandler("1", func.op1))
-    #application.add_handler(CommandHandler("2", func.op2))
-    #application.add_handler(CommandHandler("3", func.op3))
-    #application.add_handler(CommandHandler("4", func.op4))
+    application.add_handler(CommandHandler("2", func.op2))
+    application.add_handler(CommandHandler("3", func.op3))
+    application.add_handler(CommandHandler("4", func.op4))
 
     # on non command i.e message - echo the message on Telegram
 
