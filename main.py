@@ -1,36 +1,32 @@
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
-import pickle,func
+import func
 
 #Codigo para o GPT responder via telegram, ele guarda as 2 ultimas interações, ou seja, 4 ultimas msgs.
 #Sem usar comando ele se limita a 500Tokens, usando o comando ele pode ir ate 3k de tokens.
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /help is issued."""
-    with open('lista.pickle', 'rb') as f:
-        messages = pickle.load(f)
-
-    messages=[{"role": "system", "content": "Fale apenas a verdade."}]
-
-    with open('lista.pickle', 'wb') as f:
-        pickle.dump(messages, f)
-
     await update.message.reply_text("Help!")
 
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("6221766418:AAELMn98mvk8Pk2m2zn7wPF97D9B3OezvBU").build()
 
-    # on different commands - answer in Telegram
+    with open('token.txt', 'r') as arquivo:
+         token = arquivo.read()
+
+    application = Application.builder().token(token).build()
+
+    # Comandos recebidos pelo CommandHandler e qual função ele deve chamar.
     application.add_handler(CommandHandler("start", func.start))
     application.add_handler(CommandHandler("help", help_command))
 
-    application.add_handler(CommandHandler("1", func.op1))
-    application.add_handler(CommandHandler("2", func.op2))
-    application.add_handler(CommandHandler("3", func.op3))
-    application.add_handler(CommandHandler("4", func.op4))
+    application.add_handler(CommandHandler("1", func.op))
+    application.add_handler(CommandHandler("2", func.op))
+    application.add_handler(CommandHandler("3", func.op))
+    application.add_handler(CommandHandler("4", func.op))
+    application.add_handler(CommandHandler("novo", func.novo))
 
     # on non command i.e message - echo the message on Telegram
 

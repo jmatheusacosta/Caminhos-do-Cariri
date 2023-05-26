@@ -1,34 +1,22 @@
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 import telebot
-import pickle
 import csv
 
-"""def save_update(update):
-    #Salva os dados Update para ser usado por outras funções.
-    with open("update.pickle", "wb") as f:
-        pickle.dump(update, f)
-
-async def open_update():
-    with open("update.pickle", "rb") as f:
-        update = pickle.load(f)
-    print(update)
-    return update"""
 def abrir_dados():
     matriz=[]
-    with open("dados.csv","r") as arquivo:
+    with open("dados.csv","r",encoding='utf-8') as arquivo:
         arquivo_csv=csv.reader(arquivo,delimiter=",")
         for i, linha in enumerate(arquivo_csv):
             matriz.append(linha)
         return matriz
 def salvar_dados(matriz):
-    with open("dados.csv", "w", newline="") as f:
+    with open("dados.csv", "w",encoding='utf-8', newline="") as f:
         writer = csv.writer(f)
         writer.writerows(matriz)
-
 def abrir_caminhos():
     caminhos=[]
-    with open("caminhos.csv","r") as arquivo:
+    with open("caminhos.csv","r",encoding='utf-8') as arquivo:
         arquivo_csv=csv.reader(arquivo,delimiter=",")
         for i, linha in enumerate(arquivo_csv):
             caminhos.append(linha)
@@ -37,16 +25,24 @@ def salvar_caminhos(matriz):
     with open("caminhos.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(matriz)
-
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /start is issued."""
-    #save_update(update)
+    #obtem dados de quem entrou em contato com o bot
     user = update.effective_user
     nome_jogador=update.effective_user.first_name
-    print(update.effective_user.first_name)
-    verificar_usuario(nome_jogador,update.message.chat.id)
-    await update.message.reply_html(rf"Hi {user.mention_html()}!",reply_markup=ForceReply(selective=False))
+    #Verifica se é um novo ou antigo jogador
+    stats_jogador=verificar_usuario(nome_jogador,update.message.chat.id)
+    await update.message.reply_html(rf"Ola {user.mention_html()}!")
+
+    #Reage baseado na situação do jogador
+    if stats_jogador==0:
+        pergunta=caminho_atual(nome_jogador)
+        await update.message.reply_html(rf"{pergunta}")
+    elif stats_jogador==1:
+        await update.message.reply_html(rf"Você tem um jogo em aberto, continue ele ou digite /novo para começar um novo jogo.")
+        pergunta = caminho_atual(nome_jogador)
+        await update.message.reply_html(rf"{pergunta}")
+    else:
+        await update.message.reply_html(rf"Ola, um erro (ZX7) foi encontrado, se possivel entre em contato com o suporte para resolver essa situação!")
 def verificar_usuario(nome,id):
     matriz=abrir_dados()
     #print(matriz)
@@ -55,7 +51,7 @@ def verificar_usuario(nome,id):
         #Criar o jogador e dados de conquistas
         matriz[0].append(nome)
         matriz[1].append(id)
-        matriz[2].append("AA0")
+        matriz[2].append("AA0")#Alterar futuramente para a pergunta inicial
 
         #Salvar alterações feitas
         salvar_dados(matriz)
@@ -63,121 +59,82 @@ def verificar_usuario(nome,id):
         #Chamar apresentação sobre o jogo
         apresentacao(nome,id)
 
-    elif matriz[0].count(nome) == 1:
-        #Indentificar o jogador.
+        #Informa que o usuario é novo, e inicia a primeira pergunta
+        return 0
 
+    elif matriz[0].count(nome) == 1:
         #Informar que o jogador ja tem um jogo em aberto, perguntar se ele que reiniciar ou continuar daonde parou.
 
-        x=0
+        return 1
     else:
         #Informar que ocorreu um erro, que usuario esta duplicado e procurar o suporte.
-        x=0
+        return 2
 def apresentacao(nome,id):
     telebot.TeleBot("6221766418:AAELMn98mvk8Pk2m2zn7wPF97D9B3OezvBU").send_message(id, f'Ola {nome}, esse é um projeto...')
+async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    matriz = abrir_dados()
 
-async def op1(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    matriz= abrir_dados()
-    #Encontra o nome do jogador e em qual cmainho ele esta.
+    # Encontra o nome do jogador
     nome_jogador = update.effective_user.first_name
-    id_jogador=matriz[0].index(nome_jogador)
-    id_caminho_atual=(matriz[2][id_jogador])
+    #Encontra a posição do jogador na planilha
+    id_jogador = matriz[0].index(nome_jogador)
+    matriz[2][id_jogador]="AA0"
 
-    #Encontra a opção que o jogador escolheu, e chama o proximo caminho
-    caminhos=abrir_caminhos()
-    id_caminho=caminhos[0].index(id_caminho_atual)
-    print(id_jogador)
-    prox_caminho=caminhos[2][id_caminho]
-
-    #Indentificado o id da proxima pergunta, faz-se uma pesquisa pelo ID
-    id_prox_caminho=caminhos[0].index(prox_caminho)
-
-
-
-    #altera o caminho atual do personagem na planilha dados
-    matriz[2][id_jogador]=prox_caminho
     salvar_dados(matriz)
-
-    #e envia o proximo caminho para o usuario
-    pergunta=caminhos[1][id_prox_caminho].replace('/n','\n')
+    pergunta = caminho_atual(nome_jogador)
     await update.message.reply_html(rf"{pergunta}")
+def caminho_atual(nome_jogador):
+    # Extrai os dados de jogador do CSV
+    matriz = abrir_dados()
+    # Encontra a posição do jogador na planilha
+    id_jogador = matriz[0].index(nome_jogador)
+    # Usa o ID do jogador para saber qual o ID da pergunta que o jogador parou.
+    id_caminho_atual = (matriz[2][id_jogador])
 
+    # Extrai os dados dos Caminhos do CSV
+    caminhos = abrir_caminhos()
+    # Indentifica o Caminho em que o jogador parou, basedo no ID da pergunta obtido anteriomente
+    id_caminho = caminhos[0].index(id_caminho_atual)
 
-#Agora so tenho que repetir o codigo anterior para as opções 2,3 e 4.
-async def op2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    matriz= abrir_dados()
-    #Encontra o nome do jogador e em qual cmainho ele esta.
+    texto_caminho=caminhos[1][id_caminho]
+
+    for c in range(0,int(caminhos[4][id_caminho])):
+        texto_caminho=texto_caminho+'\n\n'+caminhos[5+(2*c)][id_caminho]
+        print(caminhos[5+(2*c)][id_caminho])
+    texto_caminho=texto_caminho.replace('/n','\n')
+    return texto_caminho
+async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    #Retirar do Update qual opção o usruaio escolheu.
+    escolha=int((update.message.text[1]))
+
+    #Extrai os dados de jogador do CSV
+    matriz=abrir_dados()
+    print(matriz)
+    # Encontra o nome do jogador
     nome_jogador = update.effective_user.first_name
-    id_jogador=matriz[0].index(nome_jogador)
-    id_caminho_atual=(matriz[2][id_jogador])
+    #Encontra a posição do jogador na planilha
+    id_jogador = matriz[0].index(nome_jogador)
+    #Usa o ID do jogador para saber qual o ID da pergunta que o jogador parou.
+    id_caminho_atual = (matriz[2][id_jogador])
 
-    #Encontra a opção que o jogador escolheu, e chama o proximo caminho
-    caminhos=abrir_caminhos()
-    id_caminho=caminhos[0].index(id_caminho_atual)
-    print(id_jogador)
-    prox_caminho=caminhos[3][id_caminho]
+    #Extrai os dados dos Caminhos do CSV
+    caminhos = abrir_caminhos()
+    #Indentifica o Caminho em que o jogador parou, basedo no ID da pergunta obtido anteriomente
+    id_caminho = caminhos[0].index(id_caminho_atual)
 
-    #Indentificado o id da proxima pergunta, faz-se uma pesquisa pelo ID
-    id_prox_caminho=caminhos[0].index(prox_caminho)
+    #Verifica se na pergunta atual existe a opção selecionada pelo jogador
+    if escolha>int(caminhos[4][id_caminho]):
+        texto_caminho=caminho_atual(nome_jogador)
+        await update.message.reply_html(rf"Opção invalida, releia com atenção e escolha uma opção valida.")
+        await update.message.reply_html(rf"{texto_caminho}")
 
+    else:
+        #Encontra o ID do proximo caminho escolhido pelo usuario
+        id_proximo_caminho=caminhos[4+(2*escolha)][id_caminho]
 
+        #Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
+        matriz[2][id_jogador] = id_proximo_caminho
+        salvar_dados(matriz)
 
-    #altera o caminho atual do personagem na planilha dados
-    matriz[2][id_jogador]=prox_caminho
-    salvar_dados(matriz)
-
-    #e envia o proximo caminho para o usuario
-    pergunta=caminhos[1][id_prox_caminho].replace('/n','\n')
-    await update.message.reply_html(rf"{pergunta}")
-
-
-async def op3(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    matriz= abrir_dados()
-    #Encontra o nome do jogador e em qual cmainho ele esta.
-    nome_jogador = update.effective_user.first_name
-    id_jogador=matriz[0].index(nome_jogador)
-    id_caminho_atual=(matriz[2][id_jogador])
-
-    #Encontra a opção que o jogador escolheu, e chama o proximo caminho
-    caminhos=abrir_caminhos()
-    id_caminho=caminhos[0].index(id_caminho_atual)
-    print(id_jogador)
-    prox_caminho=caminhos[4][id_caminho]
-
-    #Indentificado o id da proxima pergunta, faz-se uma pesquisa pelo ID
-    id_prox_caminho=caminhos[0].index(prox_caminho)
-
-
-
-    #altera o caminho atual do personagem na planilha dados
-    matriz[2][id_jogador]=prox_caminho
-    salvar_dados(matriz)
-
-    #e envia o proximo caminho para o usuario
-    pergunta=caminhos[1][id_prox_caminho].replace('/n','\n')
-    await update.message.reply_html(rf"{pergunta}")
-
-async def op4(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    matriz= abrir_dados()
-    #Encontra o nome do jogador e em qual cmainho ele esta.
-    nome_jogador = update.effective_user.first_name
-    id_jogador=matriz[0].index(nome_jogador)
-    id_caminho_atual=(matriz[2][id_jogador])
-
-    #Encontra a opção que o jogador escolheu, e chama o proximo caminho
-    caminhos=abrir_caminhos()
-    id_caminho=caminhos[0].index(id_caminho_atual)
-    print(id_jogador)
-    prox_caminho=caminhos[5][id_caminho]
-
-    #Indentificado o id da proxima pergunta, faz-se uma pesquisa pelo ID
-    id_prox_caminho=caminhos[0].index(prox_caminho)
-
-
-
-    #altera o caminho atual do personagem na planilha dados
-    matriz[2][id_jogador]=prox_caminho
-    salvar_dados(matriz)
-
-    #e envia o proximo caminho para o usuario
-    pergunta=caminhos[1][id_prox_caminho].replace('/n','\n')
-    await update.message.reply_html(rf"{pergunta}")
+        pergunta=caminho_atual(nome_jogador)
+        await update.message.reply_html(rf"{pergunta}")

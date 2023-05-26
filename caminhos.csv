@@ -1,6 +1,13 @@
-AA0,AA1,AB0,AC0,AD0
-"Voc� esta decidido visitar a estatua do Padre Cicero, constru�da em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da hist�ria da regi�o, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar l�, voc� v� um grupo de romeiros, oque voc� decide fazer? /n/1 - Vai falar com��os��romeiros vendo se eles��tem��a mesma anima��o que voc� para conhecera est�tua do Pe. C�cero. /n/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero.","Os romeios s�o amigaveis, e ate lhe convidam para voc� subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros v�o continuar a subida no onibus, e lhe perguntam oque vc decide fazer. ",TESTE OP2,TESTE OP3,TESTE OP4
-AA1,ac3,,,
-AB0,as5,,,
-AC0,,,,
-AD0,,,,
+ID_PERGUNTA,AA0,AA1,AA2,AA3,AC0,AD0,,,,,,,,,,,,
+PERGUNTA,"Você esta decidido visitar a estatua do Padre Cicero, construída em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da história da região, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar lá, você vê um grupo de romeiros, oque você decide fazer? ","Os romeios são amigaveis, e ate lhe convidam para você subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros vão continuar a subida no onibus, e lhe perguntam oque vc decide fazer.","Ao decidir subir o morro a pé, os romeiros lhe contam que existem 14 estações, mostrando o percurso que Jesus passou durante seu Calvário, em imagens preto e banco de que lembram Xilogravuras, e que faz parte do costume dos romeiros fazer uma oração em cada uma das 14 estações. ","1 estação - Jesus é codenado a morte./nA primeira estação mostra a imagem de Pilatos condenando Jesus a morte./nEnquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer? ",TESTE OP3,TESTE OP4,,,,,,,,,,,,
+CONTEM_FOTO,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+NOME_FOTO,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+QUANT_ITENS,2,2,2,3,,,,,,,,,,,,,,
+ITEM_01,/1 - Vai falar com  os  romeiros vendo se eles  tem  a mesma animação que você para conhecera estátua do Pe. Cícero. ,/1 Subir o morro junto aos romeiros ,"/1 Você esta determinado a subir todas as 14 estações a pé, como sinal de respeito a Jesus. ","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção. ",,,,,,,,,,,,,,
+ID_ITEM_01,AA1,AA2,AA3,,,,,,,,,,,,,,,
+ITEM_02,/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero. ,/2 Continuar no Ônibus ,/2 Você desiste de subir a pé as 14 estações e volta para o onibus antes que ele parta. ,"/2 Fica parado observando a fe das pessoas a sua volta, ",,,,,,,,,,,,,,
+ID_ITEM_02,AB0,AA17,AA17 ,,,,,,,,,,,,,,,
+ITEM_03,NULL,NULL,NULL,/3 Decide fazer a sua oração também.,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+ID_ITEM_03,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+ITEM_04,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+ID_ITEM_04,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
