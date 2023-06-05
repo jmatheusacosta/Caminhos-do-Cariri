@@ -1,13 +1,73 @@
-ID_PERGUNTA,AA0,AA1,AA2,AA3,AC0,AD0,,,,,,,,,,,,
-PERGUNTA,"Você esta decidido visitar a estatua do Padre Cicero, construída em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da história da região, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar lá, você vê um grupo de romeiros, oque você decide fazer? ","Os romeios são amigaveis, e ate lhe convidam para você subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros vão continuar a subida no onibus, e lhe perguntam oque vc decide fazer.","Ao decidir subir o morro a pé, os romeiros lhe contam que existem 14 estações, mostrando o percurso que Jesus passou durante seu Calvário, em imagens preto e banco de que lembram Xilogravuras, e que faz parte do costume dos romeiros fazer uma oração em cada uma das 14 estações. ","1 estação - Jesus é codenado a morte./nA primeira estação mostra a imagem de Pilatos condenando Jesus a morte./nEnquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer? ",TESTE OP3,TESTE OP4,,,,,,,,,,,,
-CONTEM_FOTO,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-NOME_FOTO,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-QUANT_ITENS,2,2,2,3,,,,,,,,,,,,,,
-ITEM_01,/1 - Vai falar com  os  romeiros vendo se eles  tem  a mesma animação que você para conhecera estátua do Pe. Cícero. ,/1 Subir o morro junto aos romeiros ,"/1 Você esta determinado a subir todas as 14 estações a pé, como sinal de respeito a Jesus. ","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção. ",,,,,,,,,,,,,,
-ID_ITEM_01,AA1,AA2,AA3,,,,,,,,,,,,,,,
-ITEM_02,/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero. ,/2 Continuar no Ônibus ,/2 Você desiste de subir a pé as 14 estações e volta para o onibus antes que ele parta. ,"/2 Fica parado observando a fe das pessoas a sua volta, ",,,,,,,,,,,,,,
-ID_ITEM_02,AB0,AA17,AA17 ,,,,,,,,,,,,,,,
-ITEM_03,NULL,NULL,NULL,/3 Decide fazer a sua oração também.,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-ID_ITEM_03,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-ITEM_04,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-ID_ITEM_04,NULL,NULL,NULL,AA4 ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+ID_PERGUNTA,0,A,AA0,AA1,AA2,AA3,AA4,AA5,AA6,AA7,AA8,AA9,AA10,AA11,AA12,AA13,AA14,AA15,AA16,AA17,AA18,AA19,AA20,AA21,teste
+PERGUNTA,"Você desembarca no aeroporto de Juazeiro do Norte e sente o clima quente e seco característico da região do sertão nordestino. Olha em volta e vê muitas pessoas com roupas coloridas e chapéus de palha, algumas carregando malas grandes e outras segurando placas com nomes de hotéis./n /nEnquanto aguarda a sua bolsa, você lembra dos itens que você trouxe consigo , quais deles seria melhor pegar ?/n /nEnquanto aguarda a sua bolsa, você lembra que montou ela com um objetivo espeficifico, oque vc colocou na sua bolsa? com que objetivo?",Pegando o catalogo de pontos famosos do nordeste de sua bolsa você vê dois lugares que te  chamaram atenção mas para qual ir ?,"Você esta decidido visitar a estatua do Padre Cicero, construída em 1969 e com 30 metros de altura, a estatua representa Padre Cicero, uma das figuras mais conhecidas da história da região, amplamente conhecido no meio religioso. /n/nAo pensar em uma maneira de chegar lá, você vê um grupo de romeiros, oque você decide fazer?","Os romeios são amigaveis, e ate lhe convidam para você subir o horto com eles. /n/nEm certo momento, na subida do horto o onibus para, e alguns romeiros decidem descer, e subir todo o caminho ate a estatua a pe, e outros vão continuar a subida no onibus, e lhe perguntam oque vc decide fazer.","Ao decidir subir o morro a pé, os romeiros lhe contam que existem 14 estações, mostrando o percurso que Jesus passou durante seu Calvário, em imagens preto e banco de que lembram Xilogravuras, e que faz parte do costume dos romeiros fazer uma oração em cada uma das 14 estações.","1 estação - Jesus é codenado a morte./nA primeira estação mostra a imagem de Pilatos condenando Jesus a morte./nEnquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","2 estação - Jesus carrega a cruz
+
+A segunda estação mostra Jesus sendo entregue aos judeus, e recebendo a cruz nos ombros para começar sua dura jonarda.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","3 estação - Jesus cai pela primeira vez.
+
+Na terceira estação tem a representação de jesus caindo sobre a cruz, pela primeira vez e recebendo a coroa de espinhos.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","4 estação - Jesus encontra Maria, sua mãe.
+
+Na quarta estação jesus encontra-se com sua mãe
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","5 estação - Simão ajuda Jesus a carregar a cruz.
+
+Na quinta estação, cirineu ajuda jesus a carregar a cruz a caminho do calvario.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","6 estação - Veronica enxuga a face de Jesus
+
+A sexta estação traz uma mulher de jerusalem limpando o rosto ensanguentado de Jesus.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","7 estação - Jesus cai pela segunda vez.
+
+A setima estação representa o peso da cruz, as forças de jesus se esgotam, jesus cai pela segunda vez.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","8 estação -  Jesus consola as filhas de Jerusalem
+
+na oitava estação jesus consola as mulheres de jerusalem, que choram ao ve-lô em meio a tanto sofrimento
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","9 estação - Jesus cai pela terceira vez
+
+Na noma estação, no topo do calvario, os algozes o chiteavam e ele cai pela terceira vez.
+
+Um detalhe lhe chama atenção nessa estação, uma fita vermelha, que esta presa a placa, que parece estar la a muito tempo, mas ainda sim a fita esta quase nova.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","10 estação - Jesus é despojado de suas vestes.
+
+Na decima estação mostra a imagem de jesus sendo despido, para poder ser aprisionado a cruz
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","11 estação - Jesus é pregado na Cruz
+
+decima primeira estação representa a crueldade  da pregração de jesus, ele é fixado na cruz por pregos nos pulsos, e depois nas juntas do tornozelo e calcanhar.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","12 estação - Jesus morre na cruz
+
+Nessa estação esta represetando jesus na cruz, talvez uma das imagens mais iconicas da fé crista.
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","13 estação - Jesus é despregado da cruz
+
+Imagem mostra o corpo de jesus, retirado da cruz e colocado nos braços de sua mãe
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","14 estação - O corpo de jesus é sepultado
+
+a ultima imagem desta via sacra mostra o corpo de jesus sendo depositado em seu sepulcro
+
+Enquanto alguns romeiros se ajoelham para orar, outros continuam em pé, oque você decide fazer?","Você chegou ate o topo do horto, aos pes da estatua de padre cicero, oque você quer fazer agora?
+
+Voce tem uma linda vista da cidade de juazeiro, ou você pode ir diretamente ate os pés da estatua.","Você sobe uma ultima escada, e se encontra aos pés da estatua, uma enorme estatua branca, de um velho padre usando chapeu e segurando uma bengala.
+
+Você ve algumas pessoas dando 3 voltas ao redor da bengala, e lembra que um dos romeiros falou que existe uma cultura de fazer um pedido e dar 3 voltas ao redor da bengala para ter seu pedido realizado.
+
+você decide tbm fazer esse ritual, ou a viagem ja foi o bastante para vc?","Você mentaliza seu desejo, e esta pronto para dar a primeira volta.","Com um pouco de dificuldade vc da a primeira volta, e lembra que é dito que pessoas com muito pecado não conseguem dar as 3 voltas na bengala.","Voce consegue dar a segunda volta agora sem dificuldades, e se prepara para a terceira volta",
+CONTEM_FOTO,,,,,,,,,,,,,,,,,Foto Do Padre Cicero,,,,,,,,
+NOME_FOTO,,,,,,,,,,,,,,,,,,,,,,,,,
+QUANT_ITENS,4,1,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,1,1,1,
+ITEM_01,/1 - Pontos Turísticos,"/1 - A Estatua do Padre Cicero, uma estatua branca, enorme e  imponente do padroeiro da região",/1 - Vai falar com  os  romeiros vendo se eles  tem  a mesma animação que você para conhecera estátua do Pe. Cícero.,/1 Subir o morro junto aos romeiros,"/1 Você esta determinado a subir todas as 14 estações a pé, como sinal de respeito a Jesus.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.","/1 Observa a pintura detalhadamente, pois ela lhe chama atenção.",Ir ate a estatua,/1 dar as 3 voltas,/1 Dar a primeira volta.,/1 dar a segunda volta,/1 dar a terceira volta,
+ID_ITEM_01,A,AA0,AA1,AA2,AA3,AA4,AA5,AA6,AA7,AA8,AA9,AA10,AA11,AA12,AA13,AA14,AA15,AA16,AA17,AA18,AA19,AA20,AA21,AA22,
+ITEM_02,/2 - Pontos de Históricos,,/2 - Decide chamar um taxi para lhe levar direto ate a estatua de padre cicero.,/2 Continuar no Ônibus,/2 Você desiste de subir a pé as 14 estações e volta para o onibus antes que ele parta.,"/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,","/2 Fica parado observando a fe das pessoas a sua volta,",/2 Fica parado observando a fe das pessoas a sua volta.,Apreciar a vista,"/2 estou sastiveito, quero observar a vista aos pés de padre cicero.",,,,
+ID_ITEM_02,B,,AB0,AA17,AA17,AA4,AA5,AA6,AA7,AA8,AA9,AA10,AA11,AA12,AA13,AA14,AA15,AA16,AA17,,AA23,,,,
+ITEM_03,/3 - Pontos Religiosos,,,,,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,/3 Decide fazer a sua oração tbm.,,,,,,
+ID_ITEM_03,CA0,,,,,AA4,AA5,AA6,AA7,AA8,AA9,AA10,AA11,AA12,AA13,AA14,AA15,AA16,AA17,,,,,,
+ITEM_04,/4 - Pontos de Passeio,,,,,,,,,,,,,,,,,,,,,,,,
+ID_ITEM_04,D,,,,,,,,,,,,,,,,,,,,,,,,

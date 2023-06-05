@@ -21,10 +21,6 @@ def abrir_caminhos():
         for i, linha in enumerate(arquivo_csv):
             caminhos.append(linha)
         return caminhos
-def salvar_caminhos(matriz):
-    with open("caminhos.csv", "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerows(matriz)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #obtem dados de quem entrou em contato com o bot
     user = update.effective_user
