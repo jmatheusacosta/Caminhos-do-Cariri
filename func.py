@@ -47,7 +47,7 @@ def verificar_usuario(nome,id):
         #Criar o jogador e dados de conquistas
         matriz[0].append(nome)
         matriz[1].append(id)
-        matriz[2].append("AA0")#Alterar futuramente para a pergunta inicial
+        matriz[2].append("0")#Alterar futuramente para a pergunta inicial
 
         #Salvar alterações feitas
         salvar_dados(matriz)
@@ -74,7 +74,7 @@ async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     nome_jogador = update.effective_user.first_name
     #Encontra a posição do jogador na planilha
     id_jogador = matriz[0].index(nome_jogador)
-    matriz[2][id_jogador]="AA0"
+    matriz[2][id_jogador]="0"
 
     salvar_dados(matriz)
     pergunta = caminho_atual(nome_jogador)
@@ -96,7 +96,7 @@ def caminho_atual(nome_jogador):
 
     for c in range(0,int(caminhos[4][id_caminho])):
         texto_caminho=texto_caminho+'\n\n'+caminhos[5+(2*c)][id_caminho]
-        print(caminhos[5+(2*c)][id_caminho])
+        #print(caminhos[5+(2*c)][id_caminho])
     texto_caminho=texto_caminho.replace('/n','\n')
     return texto_caminho
 async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
