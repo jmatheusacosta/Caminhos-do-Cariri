@@ -27,7 +27,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     nome_jogador=update.effective_user.first_name
     #Verifica se é um novo ou antigo jogador
     stats_jogador=verificar_usuario(nome_jogador,update.message.chat.id)
-    await update.message.reply_html(rf"Ola {user.mention_html()}!")
+
 
     #Reage baseado na situação do jogador
     if stats_jogador==0:
