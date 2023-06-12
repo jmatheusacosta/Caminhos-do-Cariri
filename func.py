@@ -66,7 +66,7 @@ def verificar_usuario(nome,id):
         #Informar que ocorreu um erro, que usuario esta duplicado e procurar o suporte.
         return 2
 def apresentacao(nome,id):
-    telebot.TeleBot("6221766418:AAELMn98mvk8Pk2m2zn7wPF97D9B3OezvBU").send_message(id, f'Ola {nome}, esse é um projeto...')
+    telebot.TeleBot("6221766418:AAELMn98mvk8Pk2m2zn7wPF97D9B3OezvBU").send_message(id, f'Ola {nome}, "Caminhos do Cariri", é uma história interativa feita pela 2JD como um projeto sustentado por um código que permite a criação e implementaçãode outras histórias com temáticas diferentes, esta aqui, visa despertar a curiosidade e o interesse de seus usuários em explorar as maravilhasdo estado do Ceará, mais especificamente, a região do Crajubar. \n\n O jogo é cuidadosamente projetado para oferecer uma experiência turísticaimersiva, apresentando locais reais do estado do Ceará. "Caminhos do Cariri" tem como objetivo não apenas entreter, mas também educar eincentivar as pessoas a explorarem o estado do Ceará de forma real e virtual. \n\n Ao jogar, os participantes serão incentivados a refletir sobresuas escolhas e como elas podem impactar a sua experiência na região que estão visitando. \n\n Uma jogabilidade envolvente e simples,"Caminhos do Cariri" é um convite para os viajantes e romeiros, e incita os curiosos de plantão a descobrirem o estado do Ceará de uma maneiratotalmente nova pela visão dos locais....')
 async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     matriz = abrir_dados()
 
