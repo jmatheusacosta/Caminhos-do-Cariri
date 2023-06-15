@@ -27,6 +27,7 @@ def main() -> None:
     application.add_handler(CommandHandler("3", func.op))
     application.add_handler(CommandHandler("4", func.op))
     application.add_handler(CommandHandler("novo", func.novo))
+    application.add_handler(CommandHandler("foto", func.foto))
 
     # on non command i.e message - echo the message on Telegram
 

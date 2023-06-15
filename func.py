@@ -79,6 +79,17 @@ async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     salvar_dados(matriz)
     pergunta = caminho_atual(nome_jogador)
     await update.message.reply_html(rf"{pergunta}")
+
+async def foto(update: Update, context):
+    photo_path = 'teste.jpg'
+
+    # Texto a ser enviado junto com a foto
+    caption = 'Aqui está a foto de teste!'
+
+    # Envio da foto com o texto para o usuário
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(photo_path, 'rb'), caption=caption)
+
+
 def caminho_atual(nome_jogador):
     # Extrai os dados de jogador do CSV
     matriz = abrir_dados()
@@ -133,4 +144,15 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         salvar_dados(matriz)
 
         pergunta=caminho_atual(nome_jogador)
-        await update.message.reply_html(rf"{pergunta}")
+
+        #print(id_caminho)
+        #print(caminhos[2][id_caminho])
+        if caminhos[2][id_caminho+1]=='true':
+            try:
+                nome_foto=caminhos[3][id_caminho+1]
+                local_foto="imagens/"+nome_foto+".jpg"
+                await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(local_foto, 'rb'), caption=pergunta)
+            except:
+                await update.message.reply_html(rf"{pergunta}")
+        else:
+            await update.message.reply_html(rf"{pergunta}")
