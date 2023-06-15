@@ -1,7 +1,7 @@
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 import telebot
-import csv
+import csv, token
 
 def abrir_dados():
     matriz=[]
@@ -105,8 +105,8 @@ def caminho_atual(nome_jogador):
 
     texto_caminho=caminhos[1][id_caminho]
 
-    for c in range(0,int(caminhos[4][id_caminho])):
-        texto_caminho=texto_caminho+'\n\n'+caminhos[5+(2*c)][id_caminho]
+    for c in range(0,int(caminhos[6][id_caminho])):
+        texto_caminho=texto_caminho+'\n\n'+caminhos[7+(2*c)][id_caminho]
         #print(caminhos[5+(2*c)][id_caminho])
     texto_caminho=texto_caminho.replace('/n','\n')
     return texto_caminho
@@ -130,14 +130,14 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     id_caminho = caminhos[0].index(id_caminho_atual)
 
     #Verifica se na pergunta atual existe a opção selecionada pelo jogador
-    if escolha>int(caminhos[4][id_caminho]):
+    if escolha>int(caminhos[6][id_caminho]):
         texto_caminho=caminho_atual(nome_jogador)
         await update.message.reply_html(rf"Opção invalida, releia com atenção e escolha uma opção valida.")
         await update.message.reply_html(rf"{texto_caminho}")
 
     else:
         #Encontra o ID do proximo caminho escolhido pelo usuario
-        id_proximo_caminho=caminhos[4+(2*escolha)][id_caminho]
+        id_proximo_caminho=caminhos[6+(2*escolha)][id_caminho]
 
         #Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
         matriz[2][id_jogador] = id_proximo_caminho
