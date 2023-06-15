@@ -136,23 +136,38 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_html(rf"{texto_caminho}")
 
     else:
-        #Encontra o ID do proximo caminho escolhido pelo usuario
-        id_proximo_caminho=caminhos[6+(2*escolha)][id_caminho]
-
-        #Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
-        matriz[2][id_jogador] = id_proximo_caminho
-        salvar_dados(matriz)
-
-        pergunta=caminho_atual(nome_jogador)
-
         #print(id_caminho)
         #print(caminhos[2][id_caminho])
         if caminhos[2][id_caminho+1]=='true':
             try:
                 nome_foto=caminhos[3][id_caminho+1]
                 local_foto="imagens/"+nome_foto+".jpg"
+                # Encontra o ID do proximo caminho escolhido pelo usuario
+                id_proximo_caminho = caminhos[6 + (2 * escolha)][id_caminho]
+
+                # Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
+                matriz[2][id_jogador] = id_proximo_caminho
+                salvar_dados(matriz)
+
+                pergunta = caminho_atual(nome_jogador)
                 await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(local_foto, 'rb'), caption=pergunta)
             except:
+                # Encontra o ID do proximo caminho escolhido pelo usuario
+                id_proximo_caminho = caminhos[6 + (2 * escolha)][id_caminho]
+
+                # Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
+                matriz[2][id_jogador] = id_proximo_caminho
+                salvar_dados(matriz)
+
+                pergunta = caminho_atual(nome_jogador)
                 await update.message.reply_html(rf"{pergunta}")
         else:
+            # Encontra o ID do proximo caminho escolhido pelo usuario
+            id_proximo_caminho = caminhos[6 + (2 * escolha)][id_caminho]
+
+            # Altera na planilha de dados o ID do caminho que o usuario se encontra para o caminho escolhido.
+            matriz[2][id_jogador] = id_proximo_caminho
+            salvar_dados(matriz)
+
+            pergunta = caminho_atual(nome_jogador)
             await update.message.reply_html(rf"{pergunta}")
