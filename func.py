@@ -28,7 +28,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #Verifica se é um novo ou antigo jogador
     stats_jogador=verificar_usuario(nome_jogador,update.message.chat.id)
 
-
     #Reage baseado na situação do jogador
     if stats_jogador==0:
         pergunta=caminho_atual(nome_jogador)
@@ -66,7 +65,9 @@ def verificar_usuario(nome,id):
         #Informar que ocorreu um erro, que usuario esta duplicado e procurar o suporte.
         return 2
 def apresentacao(nome,id):
-    telebot.TeleBot("6221766418:AAELMn98mvk8Pk2m2zn7wPF97D9B3OezvBU").send_message(id, f'Ola {nome}, "Caminhos do Cariri", é uma história interativa feita pela 2JD como um projeto sustentado por um código que permite a criação e implementaçãode outras histórias com temáticas diferentes, esta aqui, visa despertar a curiosidade e o interesse de seus usuários em explorar as maravilhasdo estado do Ceará, mais especificamente, a região do Crajubar. \n\n O jogo é cuidadosamente projetado para oferecer uma experiência turísticaimersiva, apresentando locais reais do estado do Ceará. "Caminhos do Cariri" tem como objetivo não apenas entreter, mas também educar eincentivar as pessoas a explorarem o estado do Ceará de forma real e virtual. \n\n Ao jogar, os participantes serão incentivados a refletir sobresuas escolhas e como elas podem impactar a sua experiência na região que estão visitando. \n\n Uma jogabilidade envolvente e simples,"Caminhos do Cariri" é um convite para os viajantes e romeiros, e incita os curiosos de plantão a descobrirem o estado do Ceará de uma maneiratotalmente nova pela visão dos locais....')
+    with open('token.txt', 'r') as arquivo:
+         token = arquivo.read()
+    telebot.TeleBot(token).send_message(id, f'Ola {nome}, "Caminhos do Cariri", é uma história interativa feita pela 2JD como um projeto sustentado por um código que permite a criação e implementaçãode outras histórias com temáticas diferentes, esta aqui, visa despertar a curiosidade e o interesse de seus usuários em explorar as maravilhasdo estado do Ceará, mais especificamente, a região do Crajubar. \n\n O jogo é cuidadosamente projetado para oferecer uma experiência turísticaimersiva, apresentando locais reais do estado do Ceará. "Caminhos do Cariri" tem como objetivo não apenas entreter, mas também educar eincentivar as pessoas a explorarem o estado do Ceará de forma real e virtual. \n\n Ao jogar, os participantes serão incentivados a refletir sobresuas escolhas e como elas podem impactar a sua experiência na região que estão visitando. \n\n Uma jogabilidade envolvente e simples,"Caminhos do Cariri" é um convite para os viajantes e romeiros, e incita os curiosos de plantão a descobrirem o estado do Ceará de uma maneiratotalmente nova pela visão dos locais....')
 async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     matriz = abrir_dados()
 
@@ -161,8 +162,6 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         caminhos = abrir_caminhos()
         id_caminho = caminhos[0].index(id_caminho_atual)
 
-        #print(id_caminho)
-        #print(caminhos[2][id_caminho])
         if caminhos[2][id_caminho]=='true':
             try:
                 nome_foto=caminhos[3][id_caminho]
