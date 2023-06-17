@@ -78,7 +78,8 @@ async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     salvar_dados(matriz)
     pergunta = caminho_atual(nome_jogador)
-    await update.message.reply_html(rf"{pergunta}")
+    local_foto = "imagens/0.jpg"
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(local_foto, 'rb'), caption=pergunta)
 
 async def foto(update: Update, context):
     photo_path = 'teste.jpg'
@@ -88,6 +89,8 @@ async def foto(update: Update, context):
 
     # Envio da foto com o texto para o usuário
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(photo_path, 'rb'), caption=caption)
+
+
 
 
 def caminho_atual(nome_jogador):
@@ -110,6 +113,8 @@ def caminho_atual(nome_jogador):
         #print(caminhos[5+(2*c)][id_caminho])
     texto_caminho=texto_caminho.replace('/n','\n')
     return texto_caminho
+
+
 async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #Retirar do Update qual opção o usruaio escolheu.
     escolha=int((update.message.text[1]))
