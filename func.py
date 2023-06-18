@@ -110,7 +110,6 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     #Extrai os dados de jogador do CSV
     matriz=abrir_dados()
-    print(matriz)
     # Encontra o nome do jogador
     nome_jogador = update.effective_user.first_name
     #Encontra a posição do jogador na planilha
@@ -141,7 +140,6 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         # Extrai os dados de jogador do CSV
         matriz = abrir_dados()
-        print(matriz)
 
         # Atualiza informações caso va ser mandado foto
         nome_jogador = update.effective_user.first_name
