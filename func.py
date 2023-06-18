@@ -29,14 +29,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     stats_jogador=verificar_usuario(nome_jogador,update.message.chat.id)
 
     #Reage baseado na situação do jogador
-    if stats_jogador==0:
+    if stats_jogador==0: #Indentifica como novo jogador, e faz os procedimentos corretos
         pergunta=caminho_atual(nome_jogador)
         await update.message.reply_html(rf"{pergunta}")
-    elif stats_jogador==1:
+    elif stats_jogador==1: #Indentifica como um jogador veterano, e permite ele continuar de onde parou ou iniciar um novo jogo
         await update.message.reply_html(rf"Você tem um jogo em aberto, continue ele ou digite /novo para começar um novo jogo.")
         pergunta = caminho_atual(nome_jogador)
         await update.message.reply_html(rf"{pergunta}")
-    else:
+    else: #Indentifica duplicidade no cadastro de jogadores e informa um erro com esse ID especifico
         await update.message.reply_html(rf"Ola, um erro (ZX7) foi encontrado, se possivel entre em contato com o suporte para resolver essa situação!")
 def verificar_usuario(nome,id):
     matriz=abrir_dados()
@@ -81,18 +81,6 @@ async def novo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     pergunta = caminho_atual(nome_jogador)
     local_foto = "imagens/0.jpg"
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(local_foto, 'rb'), caption=pergunta)
-
-async def foto(update: Update, context):
-    photo_path = 'teste.jpg'
-
-    # Texto a ser enviado junto com a foto
-    caption = 'Aqui está a foto de teste!'
-
-    # Envio da foto com o texto para o usuário
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(photo_path, 'rb'), caption=caption)
-
-
-
 
 def caminho_atual(nome_jogador):
     # Extrai os dados de jogador do CSV
@@ -162,13 +150,15 @@ async def op(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         caminhos = abrir_caminhos()
         id_caminho = caminhos[0].index(id_caminho_atual)
 
-        if caminhos[2][id_caminho]=='true':
-            try:
+        if caminhos[2][id_caminho]=='true': #Verifica se a condição para a msg conter uma foto foi atendida
+            try: #A parte a seguir tenta encontrar a foto, e mandar para o usuario junto com o texto
                 nome_foto=caminhos[3][id_caminho]
                 local_foto="imagens/"+nome_foto+".jpg"
                 await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(local_foto, 'rb'), caption=pergunta)
             except:
-                print('erro')
+                #Caso ocorra algum erro ao encontrar a foto ou ao enviar, ele executa o except,
+                # Que printa um log de erro na tela, con informações uteis, e manda a msg sem a foto.
+                print(f'erro(XZ8){matriz},{id_jogador}')
                 await update.message.reply_html(rf"{pergunta}")
         else:
             await update.message.reply_html(rf"{pergunta}")

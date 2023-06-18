@@ -15,7 +15,6 @@ def main() -> None:
     application.add_handler(CommandHandler("3", func.op))
     application.add_handler(CommandHandler("4", func.op))
     application.add_handler(CommandHandler("novo", func.novo))
-    application.add_handler(CommandHandler("foto", func.foto))
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling()
